@@ -1,2 +1,1 @@
-# hrms_dfy
-HRMS Integration Solution for iBeads
+# Deify Infocomm Solutions Custom Integration for HRMS
