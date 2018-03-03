@@ -174,7 +174,7 @@ cp ../sources/db_constants.php $parent_dir/public/db_constants.php
 
 rm -r $parent_dir/hrms.zip
 
-ynh_replace_string "__superadminemail__" "$admin" ../sources/application_constants.php
+ynh_replace_string "__superadminemail__" "$admin@$domain" ../sources/application_constants.php
 ynh_replace_string "__appname__" "$appname" ../sources/application_constants.php
 cp ../sources/application_constants.php $parent_dir/public/application_constants.php
 
