@@ -46,11 +46,6 @@ fi
 path_url=$(ynh_normalize_url_path $path_url)
 
 
-ynh_print_info "Displaying Variable Data" >&2
-ynh_print_info $path_url >&2
-ynh_print_info $domain >&2
-ynh_print_info $app >&2
-
 # Check web path availability
 ynh_webpath_available $domain $path_url
 # Register (book) web path
@@ -99,8 +94,14 @@ fi
 
 # Copy files to the right place
 mkdir -p $final_path
-wget http://uwezolearning.com/hrms.zip -P $final_path/
+
+wget -q "http://www.sentrifugo.com/home/downloadfile?file_name=Sentrifugo.zip" -O hrms.zip -P $final_path/ && \
 unzip $final_path/hrms.zip -d $parent_dir > /dev/null
+cp -r $parent_dir/Sentrifugo/Sentrifugo_3.2/ $final_path/
+rm -r $parent_dir/Sentrifugo
+
+#wget http://deifysolutions.com/hrms.zip -P $final_path/
+#unzip $final_path/hrms.zip -d $parent_dir > /dev/null
 chmod 777 -R $parent_dir/public/downloads
 chmod 777 -R $parent_dir/public/uploads
 chmod 777 -R $parent_dir/public/email_constants.php
